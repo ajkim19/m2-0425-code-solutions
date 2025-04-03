@@ -10,7 +10,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 2. How do you define a component in React?
 
-- A component in React is an exported function that returns HTML, CSS, and/or JavaScript code
+- A component in React is an exported function, named with a capitalized first letter, that returns JSX.
 
 3. How is a component "rendered" (made visible on the browser page)?
 
