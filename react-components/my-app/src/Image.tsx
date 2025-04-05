@@ -1,3 +1,3 @@
 export function Image() {
-  return <img src="assets/react.svg"></img>;
+  return <img src="src/assets/image.jpg"></img>;
 }
