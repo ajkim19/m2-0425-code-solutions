@@ -10,15 +10,15 @@ React is a JavaScript library that allows developers to build websites and inter
 
 - What is a React component?
 
-A React component can be thought of as component as a self-contained collection of HTML, CSS and JavaScript that provide all of the functionality necessary for something like a form.
+A React component is a function that can be thought of as component as a self-contained collection of HTML, CSS and JavaScript that provide all of the functionality necessary for something like a form.
 
 - How do you mount a React app (root component) to the DOM?
 
-By implementing TypeScript
+By using createRoot() and render()
 
 - What are some other popular frontend frameworks?
 
-Angular, Node
+Angular, Node, View, Next
 
 ## Notes
 
