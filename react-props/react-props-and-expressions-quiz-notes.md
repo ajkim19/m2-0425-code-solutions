@@ -14,7 +14,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 3. How do you pass props to a component?
 
-- By putting in arguments to a component.
+- Pass them as attributes
 
 4. How do you write JavaScript expressions in JSX?
 
