@@ -1,6 +1,6 @@
 type Props = {
-  caption: string;
+  clickNum: string;
 };
-export function Caption({ caption }: Props) {
-  return <h3>{caption}</h3>;
+export function Caption({ clickNum }: Props) {
+  return <h3>Clicks: {clickNum}</h3>;
 }
