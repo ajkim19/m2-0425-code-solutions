@@ -4,19 +4,43 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- What is an "event" in React?
+1. What is an "event" in React?
 
-- What is an "event handler"? Which component declares the handler?
+- Events in React are similar to events in the DOM (like click, submit, change, etc.), but they are normalized and wrapped in a synthetic event system for cross-browser compatibility.
 
-- How do you pass an event handler to a React component?
+2. What is an "event handler"? Which component declares the handler?
 
-- What is the naming convention for event handlers?
+- In React, the event handler is usually a function that’s passed down to a component or defined within the component itself.
 
-- What is an "event handler prop"? Which component declares the prop?
+3. How do you pass an event handler to a React component?
 
-- What are some custom event handler props a component may wish to define?
+- You can pass an event handler to a React component as a prop.
 
-- What is the naming convention for custom event handler props?
+4. What is the naming convention for event handlers?
+
+- The naming convention for event handlers in React is to use a camelCase format, starting with `on` followed by the event name. Examples:
+  - `onClick` for a click event
+  - `onChange` for a change event
+  - `onSubmit` for a form submit event
+
+5. What is an "event handler prop"? Which component declares the prop?
+
+- An event handler prop is a prop that is passed to a component in order to handle a specific event (such as a `click` or `change` event).
+- This prop is typically declared by the _**parent component**_, which owns the logic for handling the event. The child component receives the event handler as a prop and binds it to an event in the UI.
+
+6. What are some custom event handler props a component may wish to define?
+
+- `onSubmit`: A custom handler for when a form is submitted.
+- `onChange`: A custom handler for when the value of a field changes.
+- `onItemSelect`: A custom handler when an item in a list or dropdown is selected.
+- `onFocusChange`: A custom handler for when a form field receives or loses focus.
+
+7. What is the naming convention for custom event handler props?
+
+- The naming convention for custom event handler props follows the same pattern as built-in event handlers. You should prefix the handler with `on` followed by a descriptive, camelCased name that represents the action. For example:
+- `onItemSelect`: for selecting an item.
+- `onFormSubmit`: for submitting a form.
+- `onInputChange`: for changes in an input field.
 
 ## Notes
 
