@@ -1,12 +1,18 @@
 import './ToggleSwitch.css';
 
-export function ToggleSwitch() {
+type Props = {
+  switchStatus: string;
+  onClick: () => void;
+  label: string;
+};
+
+export function ToggleSwitch({ switchStatus, onClick, label }: Props) {
   return (
     <div className="flex wrapper">
-      <div className="flex slider is-on">
-        <div className="switch"></div>
+      <div className={switchStatus}>
+        <div className="switch" onClick={onClick}></div>
       </div>
-      <span className="label"></span>
+      <span className="label">{label}</span>
     </div>
   );
 }

@@ -10,22 +10,29 @@
 }
 
 .slider {
-  width: 150px;
+  width: 100px;
   height: 50px;
+  border-radius: 100px;
 }
 
 .switch {
-  background-color: gray;
+  background-color: rgb(91, 91, 91);
   width: 50px;
   height: 50px;
+  border-radius: 100%;
 }
 
 .is-on {
-  background-color: green;
+  background-color: rgb(0, 176, 0);
   justify-content: end;
 }
 
 .is-off {
   background-color: white;
   justify-content: start;
+}
+
+.label {
+  margin: 15px;
+  font-size: 26px;
 }
