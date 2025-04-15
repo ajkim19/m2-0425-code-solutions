@@ -23,75 +23,81 @@ Answer the following questions in the provided markdown file before turning in t
 2. What are some ways to create a new, modified copy of an object?
 
 - Object.assign()
-  - <pre>`function copyObject(obj: object): object {
+  - <pre>function copyObject(obj: object): object {
       return Object.assign({}, obj);
-    }`</pre>
-  - <pre>`function updateObject(obj: object, fields: object): object {
+    }</pre>
+  - <pre>function updateObject(obj: object, fields: object): object {
       return Object.assign({}, obj, fields);
-    }`</pre>
+    }</pre>
 - Spread operator
-  - <pre>`function copyObject(obj: object): object {
+  - <pre>function copyObject(obj: object): object {
       return { ...obj };
-    }`</pre>
-  - <pre>`function updateObject(obj: object, fields: object): object {
+    }</pre>
+  - <pre>function updateObject(obj: object, fields: object): object {
       return { ...obj, ...fields };
-    }`</pre>
+    }</pre>
 - Deep clone
-  - <pre>`const newObj = JSON.parse(JSON.stringify(oldObj));`</pre>
+  - <pre>const newObj = JSON.parse(JSON.stringify(oldObj));</pre>
 - Libraries
-  - <pre>`import _ from 'lodash';
-      const newObj = _.cloneDeep(oldObj);`</pre>
+  - <pre>import _ from 'lodash';
+      const newObj = _.cloneDeep(oldObj);</pre>
 
 3. What is a good way to immutably add a value to an array?
 
 - Spread operator
-  - <pre>`function addItem(arr: Array, item: unknown): Array {
+  - <pre>function addItem(arr: Array, item: unknown): Array {
       return arr.concat(item);
-    }`</pre>
-  - <pre>`function addItem(arr: Array, item: unknown): Array {
+    }</pre>
+  - <pre>function addItem(arr: Array, item: unknown): Array {
       return [...arr, item];
-    }`</pre>
-- .map()
-  - <pre>`function updateItem(arr: Array, item: unknown): Array {
-      return arr.map((i) => (i.id === item.id ? item : i));
-    }`</pre>
-- .filter()
-  - <pre>`function removeItem(arr: Array, item: unknown): Array {
-      return arr.filter((i) => i.id !== item.id);
-    }`</pre>
+    }</pre>
 
 4. What is a good way to immutably update a value in an array?
 
--
+- .map()
+  - <pre>function updateItem(arr: Array, item: unknown): Array {
+      return arr.map((i) => (i.id === item.id ? item : i));
+    }</pre>
+  - <pre>const newArray = oldArray.map((item, index) =>
+      index === targetIndex ? newValue : item
+    );</pre>
+  - Or if you're updating a property of an object inside the array:
+    <pre>const newArray = oldArray.map((item, index) =>
+      index === targetIndex ? { ...item, key: newValue } : item
+    );</pre>
 
 5. What is a good way to immutably remove a value from an array?
 
--
+- .filter()
+  - <pre>function removeItem(arr: Array, item: unknown): Array {
+      return arr.filter((i) => i.id !== item.id);
+    }</pre>
+  - <pre>const newArray = oldArray.filter((_, index) => index !== targetIndex);</pre>
+  - Or based on a condition:
+    <pre>const newArray = oldArray.filter(item => item.id !== targetId);</pre>
 
 ## Notes
 
 All student notes should be written here.
 
-How to write `Code Examples` in markdown
+How to write Code Examples in markdown
 
 for JS:
 
-```javascript
+javascript
 const data = 'Howdy';
-```
 
 for HTML:
 
-```html
+html
+
 <div>
   <p>This is text content</p>
 </div>
-```
 
 for CSS:
 
-```css
+css
 div {
-  width: 100%;
+width: 100%;
 }
-```
