@@ -18,10 +18,10 @@ Answer the following questions in the provided markdown file before turning in t
 
 4. What is the naming convention for event handlers?
 
-- The naming convention for event handlers in React is to use a camelCase format, starting with `on` followed by the event name. Examples:
-  - `onClick` for a click event
-  - `onChange` for a change event
-  - `onSubmit` for a form submit event
+- The naming convention for event handlers in React is to use a camelCase format, starting with `handle` followed by the event name. Examples:
+  - `handleClick` for a click event
+  - `handleChange` for a change event
+  - `handleSubmit` for a form submit event
 
 5. What is an "event handler prop"? Which component declares the prop?
 

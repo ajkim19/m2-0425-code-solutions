@@ -1,0 +1,38 @@
+.flex {
+  display: flex;
+}
+
+.wrapper {
+  width: 400px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 100px;
+  height: 50px;
+  border-radius: 100px;
+}
+
+.switch {
+  background-color: rgb(91, 91, 91);
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.is-on {
+  background-color: rgb(0, 176, 0);
+  justify-content: end;
+}
+
+.is-off {
+  background-color: white;
+  justify-content: start;
+}
+
+.label {
+  margin: 15px;
+  font-size: 26px;
+}
