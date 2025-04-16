@@ -17,11 +17,22 @@ const removePokemon = { id: 4, name: 'Charmander' };
 export function App() {
   const [pokedex, setPokedex] = useState(initialPokedex);
 
-  function handleAdd(toAdd: Pokemon): void {}
+  function handleAdd(toAdd: Pokemon): void {
+    const newPokedex = pokedex.concat(toAdd);
+    setPokedex(newPokedex);
+  }
 
-  function handleUpdate(toUpdate: Pokemon): void {}
+  function handleUpdate(toUpdate: Pokemon): void {
+    const newPokedex = pokedex.map((pokemon) =>
+      pokemon.id === toUpdate.id ? toUpdate : pokemon
+    );
+    setPokedex(newPokedex);
+  }
 
-  function handleRemove(toRemove: number): void {}
+  function handleRemove(toRemove: number): void {
+    const newPokedex = pokedex.filter((pokemon) => pokemon.id !== toRemove);
+    setPokedex(newPokedex);
+  }
 
   return (
     <div>
