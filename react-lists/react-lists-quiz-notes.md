@@ -26,7 +26,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 5. What is the best value to use as a "key" prop when rendering lists?
 
-- id
+- a unique identifier
 
 ## Notes
 
