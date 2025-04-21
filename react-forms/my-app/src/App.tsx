@@ -1,10 +1,13 @@
-import { RegistrationFormControlled } from './RegistrationFormControlled';
+import { UserForm } from './UserForm';
 import './App.css';
 
 function App() {
   return (
     <>
-      <RegistrationFormControlled />
+      <h3>Create User</h3>
+      <UserForm />
+      <h3>Edit User</h3>
+      <UserForm user={{ username: 'Fred', password: 'Astaire' }} />
     </>
   );
 }
