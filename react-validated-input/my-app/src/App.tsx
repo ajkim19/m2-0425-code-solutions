@@ -55,3 +55,15 @@ function App() {
 }
 
 export default App;
+
+/// ///////////////////////////////////////////////////////
+
+// import { ValidatedInput } from './ValidatedInput';
+
+// export function App() {
+//   return (
+//     <div>
+//       <ValidatedInput />
+//     </div>
+//   );
+// }
