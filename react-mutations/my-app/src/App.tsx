@@ -43,3 +43,31 @@ export function App() {
     </div>
   );
 }
+
+////////////////////////////////////////
+// export function App() {
+//   const [pokedex, setPokedex] = useState(initialPokedex);
+
+//   function handleAdd(toAdd: Pokemon): void {
+//     setPokedex([...pokedex, toAdd]);
+//   }
+
+//   function handleUpdate(toUpdate: Pokemon): void {
+//     const dex = pokedex.map((d) => (d.id === toUpdate.id ? toUpdate : d));
+//     setPokedex(dex);
+//   }
+
+//   function handleRemove(toRemove: number): void {
+//     const dex = pokedex.filter((d) => d.id !== toRemove);
+//     setPokedex(dex);
+//   }
+
+//   return (
+//     <div>
+//       <PokemonList pokedex={pokedex} />
+//       <button onClick={() => handleAdd(addPokemon)}>Add</button>
+//       <button onClick={() => handleUpdate(updatePokemon)}>Update</button>
+//       <button onClick={() => handleRemove(removePokemon.id)}>Remove</button>
+//     </div>
+//   );
+// }
