@@ -1,0 +1,35 @@
+.flex {
+  display: flex;
+}
+
+.stopwatch {
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timepiece {
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-elapsed {
+  font-size: 30px;
+}
+
+.pause-play {
+  font-size: 25px;
+}
+
+.time-elapsed:hover,
+.pause-play:hover {
+  cursor: pointer;
+}

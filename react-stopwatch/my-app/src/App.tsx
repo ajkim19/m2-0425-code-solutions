@@ -1,14 +1,12 @@
-// import { useState } from 'react';
-// import { Stopwatch } from './Stopwatch';
-// import './App.css';
+import { Stopwatch } from './Stopwatch';
+import './App.css';
 
-// function App() {
+function App() {
+  return (
+    <>
+      <Stopwatch />
+    </>
+  );
+}
 
-//   return (
-//     <>
-//       <Stopwatch />
-//     </>
-//   );
-// }
-
-// export default App;
+export default App;
