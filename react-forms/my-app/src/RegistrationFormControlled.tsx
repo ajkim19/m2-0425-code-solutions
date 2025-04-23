@@ -1,16 +1,12 @@
 // import { useState, FormEvent } from 'react';
 
 // export function RegistrationFormControlled() {
-//   const [usernameState, setUsernameState] = useState('');
-//   const [passwordState, setPasswordState] = useState('');
+//   const [username, setUsername] = useState('');
+//   const [password, setPassword] = useState('');
 
 //   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 //     e.preventDefault();
-//     const eventTarget = e.currentTarget as HTMLFormElement;
-//     const formData = new FormData(eventTarget);
-//     const { username, password } = Object.fromEntries(formData);
-//     console.log('username:', username);
-//     console.log('password:', password);
+//     console.log('Controlled State:', { username, password });
 //   };
 
 //   return (
@@ -19,9 +15,9 @@
 //         Username:
 //         <input
 //           type="text"
-//           name="username"
-//           value={usernameState}
-//           onChange={(e) => setUsernameState(e.target.value)}
+//           placeholder="Username"
+//           value={username}
+//           onChange={(e) => setUsername(e.target.value)}
 //         />
 //       </label>
 //       <br />
@@ -29,9 +25,9 @@
 //         Password:
 //         <input
 //           type="password"
-//           name="password"
-//           value={passwordState}
-//           onChange={(e) => setPasswordState(e.target.value)}
+//           placeholder="Password"
+//           value={password}
+//           onChange={(e) => setPassword(e.target.value)}
 //         />
 //       </label>
 //       <br />

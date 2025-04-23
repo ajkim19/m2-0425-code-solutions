@@ -10,15 +10,19 @@ type Prop = {
 };
 
 export function UserForm({ user }: Prop) {
-  const [usernameState, setUsernameState] = useState(user?.username ?? '');
-  const [passwordState, setPasswordState] = useState(user?.password ?? '');
+  const [username, setUsername] = useState(user?.username ?? '');
+  const [password, setPassword] = useState(user?.password ?? '');
+  const isCreating = user === undefined;
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const eventTarget = e.currentTarget as HTMLFormElement;
-    const formData = new FormData(eventTarget);
-    const userInfo = Object.fromEntries(formData) as User;
-    console.log('User:', userInfo);
+    if (isCreating) {
+      console.log('Created', { username, password });
+    } else {
+      user.username = username;
+      user.password = password;
+      console.log('Edited', user);
+    }
   };
 
   return (
@@ -28,8 +32,8 @@ export function UserForm({ user }: Prop) {
         <input
           type="text"
           name="username"
-          value={usernameState}
-          onChange={(e) => setUsernameState(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
       </label>
       <br />
@@ -38,12 +42,12 @@ export function UserForm({ user }: Prop) {
         <input
           type="password"
           name="password"
-          value={passwordState}
-          onChange={(e) => setPasswordState(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </label>
       <br />
-      <button type="submit">Submit</button>
+      <button type="submit">{isCreating ? 'Create' : 'Update'}</button>
     </form>
   );
 }
