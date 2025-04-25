@@ -1,22 +1,32 @@
-// type Props = {
-//   items: string[];
-// };
+// // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
-// function Banner({ item }) {}
+// import { useState } from 'react';
 
-// function Next() {}
+// const [currentIndex, setCurrentIndex] = useState(0);
 
-// function Numbers({ count }) {}
+// function Banner({ item }) {
+//   return <div>{item}</div>;
+// }
 
-// function Prev() {}
+// function NextButton() {
+//   return <div></div>;
+// }
 
-// export function RotatingBanner({ items }: Props) {
+// function Indicators({ count }) {
+//   return <div></div>;
+// }
+
+// function PrevButton() {
+//   return <div></div>;
+// }
+
+// export function RotatingBanner({ items }) {
 //   return (
 //     <div>
-//       <Banner item={items[0]} />
-//       <Prev />
-//       <Numbers count={items.length} />
-//       <Next />
+//       <Banner item={items[currentIndex]} />
+//       <PrevButton />
+//       <Indicators count={items.length} />
+//       <NextButton />
 //     </div>
 //   );
 // }
