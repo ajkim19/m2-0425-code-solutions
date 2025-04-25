@@ -35,3 +35,12 @@ function App() {
 }
 
 export default App;
+
+/// ///////////////////////////////////////////////////////
+
+// import './App.css';
+// import { ToggleSwitch } from './ToggleSwitch';
+
+// export function App() {
+//   return <ToggleSwitch />;
+// }
