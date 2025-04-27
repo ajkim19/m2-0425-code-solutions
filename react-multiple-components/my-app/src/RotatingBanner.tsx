@@ -1,32 +1,75 @@
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { useState } from 'react';
+import './RotatingBanner.css';
 
-// import { useState } from 'react';
+function Banner({ item }: { item: string }) {
+  return <div className="banner">{item}</div>;
+}
 
-// const [currentIndex, setCurrentIndex] = useState(0);
+function PrevButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button className="flex prev-btn" onClick={onClick}>
+      Prev
+    </button>
+  );
+}
 
-// function Banner({ item }) {
-//   return <div>{item}</div>;
-// }
+function NextButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button className="flex next-btn" onClick={onClick}>
+      Next
+    </button>
+  );
+}
 
-// function NextButton() {
-//   return <div></div>;
-// }
+function Indicators({
+  onClick,
+  count,
+  current,
+}: {
+  onClick: () => void;
+  count: number;
+  current: number;
+}) {
+  return Array.from({ length: count }, (_: any, index: number) => (
+    <button
+      className="indicator"
+      index={index}
+      style={{ backgroundColor: index === current ? 'lightblue' : 'white' }}
+      onClick={onClick}>
+      {index}
+    </button>
+  ));
+}
 
-// function Indicators({ count }) {
-//   return <div></div>;
-// }
+export function RotatingBanner({ items }: { items: string[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-// function PrevButton() {
-//   return <div></div>;
-// }
+  function prevNum() {
+    setCurrentIndex((currentIndex - 1 + items.length) % items.length);
+  }
 
-// export function RotatingBanner({ items }) {
-//   return (
-//     <div>
-//       <Banner item={items[currentIndex]} />
-//       <PrevButton />
-//       <Indicators count={items.length} />
-//       <NextButton />
-//     </div>
-//   );
-// }
+  function nextNum() {
+    setCurrentIndex((currentIndex + 1) % items.length);
+  }
+
+  function handleSelect(e: React.MouseEvent<HTMLButtonElement>) {
+    const newIndex = e.currentTarget.getAttribute('index');
+    if (!newIndex) throw new Error('newIndex does not exist');
+    setCurrentIndex(Number(newIndex));
+  }
+
+  return (
+    <div className="flex rotating-banner">
+      <Banner item={items[currentIndex]} />
+      <PrevButton onClick={prevNum} />
+      <div className="flex indicators">
+        <Indicators
+          onClick={handleSelect}
+          count={items.length}
+          current={currentIndex}
+        />
+      </div>
+      <NextButton onClick={nextNum} />
+    </div>
+  );
+}
