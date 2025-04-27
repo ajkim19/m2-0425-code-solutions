@@ -1,43 +1,42 @@
 import { useState, ChangeEvent } from 'react';
+import './SearchableList.css';
 
 export function SearchableList({ quotes }: { quotes: string[] }) {
   const [content, setContent] = useState('');
-  const includedList: string[] = [...quotes];
+  const initArr: string[] = [];
+  const [includedList, setIncludedList] = useState(initArr);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setIncludedList(initArr);
     const eventTarget = event.target as HTMLInputElement;
     if (!eventTarget) throw new Error('event.target does not exist');
-    setContent(eventTarget.value);
-    // for (let i = 0; i < quotes.length; i++) {
-    //       console.log(quotes[i]);
-    //       const quoteArray = quotes[i].split(' ');
-    //       let isIncluded = false;
-    //       for (let j = 0; j < quoteArray.length; j++) {
-    //         for (let k = 0; k < content.length; k++) {
-    //           if (k === content.length - 1 && content[k] !== quoteArray[j][k]) {
-    //             isIncluded = true;
-    //           }
-    //         }
-    //       }
-    //       if (isIncluded) {
-    //   includedList.push(quotes[i]);
-    //       }
-    // }
-    // console.log('includedList', includedList);
+    setContent(eventTarget.value.toLowerCase());
+    console.log('content', content);
+    const tempList: string[] = [];
+    for (let i = 0; i < quotes.length; i++) {
+      const isIncluded = quotes[i].toLowerCase().includes(content);
+      if (isIncluded) {
+        tempList.push(quotes[i]);
+      }
+    }
+    setIncludedList(tempList);
+    console.log('includedList', includedList);
   }
 
   return (
     <>
-      <div className="searchable-list">
+      <div className="flex searchable-list">
         <input
           type="text"
           value={content}
           onChange={handleChange}
           placeholder="search"
         />
-        <ul>
-          {includedList.map((quote) => (
-            <li className="quote">{quote}</li>
+        <ul className="flex included-list">
+          {includedList.map((quote, index) => (
+            <li className="quote" key={index}>
+              {quote}
+            </li>
           ))}
         </ul>
       </div>

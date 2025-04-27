@@ -1,0 +1,8 @@
+li {
+  text-align: left;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
