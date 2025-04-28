@@ -32,13 +32,17 @@ export function SearchableList({ quotes }: { quotes: string[] }) {
           onChange={handleChange}
           placeholder="search"
         />
-        <ul className="flex included-list">
-          {includedList.map((quote, index) => (
-            <li className="quote" key={index}>
-              {quote}
-            </li>
-          ))}
-        </ul>
+        {includedList.length === 0 ? (
+          <div>No items match the filter</div>
+        ) : (
+          <ul className="flex included-list">
+            {includedList.map((quote, index) => (
+              <li className="quote" key={index}>
+                {quote}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </>
   );
