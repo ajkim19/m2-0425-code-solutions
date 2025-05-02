@@ -1,0 +1,19 @@
+input {
+  margin-left: 20px;
+  width: 200px;
+  justify-self: start;
+}
+
+li {
+  text-align: left;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchable-list {
+  width: 600px;
+  justify-content: start;
+}
