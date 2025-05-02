@@ -18,8 +18,8 @@ Answer the following questions in the provided markdown file before turning in t
 - Use Effect
   - Synchronize with external systems.
 - Don't Use Effect
-  - Transform data for rendering.
-  - Handle user events.
+  - Transform data for rendering
+  - Handle user events
 
 4. When do Effects run?
 

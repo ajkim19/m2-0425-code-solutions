@@ -8,18 +8,18 @@ export function List() {
   const [error, setError] = useState<unknown>();
 
   useEffect(() => {
-    async function work() {
-      setIsLoading(true);
+    async function loadItems() {
       try {
         const response = await readItems();
         setItems(response);
-        setIsLoading(false);
       } catch (error) {
         setError(error);
         console.log(`Error: ${error}`);
+      } finally {
+        setIsLoading(false);
       }
     }
-    work();
+    loadItems();
     return;
   }, []);
 
