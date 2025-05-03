@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps -- Delete this line! */
 import { useEffect, useState } from 'react';
 
 export function Timer() {
