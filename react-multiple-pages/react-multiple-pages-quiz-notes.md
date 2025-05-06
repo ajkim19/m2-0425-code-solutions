@@ -14,7 +14,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 3. Which React Router component(s) can be used to set up your app's navigation?
 
-- BrowserRouter, Routes, Route, Outlet, Link
+- BrowserRouter, Routes, Route
 
 4. How does React Router match the browser URL to one of your app's React components?
 
