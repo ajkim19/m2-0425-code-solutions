@@ -6,7 +6,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 1. In JavaScript, when is scope determined?
 
-- When it is written
+- Parse time
 
 2. What allows JavaScript functions to "remember" variables from their surroundings?
 
