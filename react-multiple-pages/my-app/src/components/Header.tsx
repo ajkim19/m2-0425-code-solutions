@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -11,13 +11,13 @@ export function Header() {
             </Link>
           </li>
           <li className="inline-block py-2 px-4">
-            <Link to="/dashboard" className="text-white">
+            <Link to="/" className="text-white">
               Dashboard
             </Link>
           </li>
         </ul>
       </nav>
-      {/* Page content goes here */}
+      <Outlet />
     </div>
   );
 }
