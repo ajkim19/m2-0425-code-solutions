@@ -1,14 +1,12 @@
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { type Item, readItem } from '../lib/read';
 
-type Props = {
-  itemId: number;
-  onDone: () => void;
-};
-export function Details({ itemId, onDone }: Props) {
+export function Details() {
   const [item, setItem] = useState<Item>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
+  const { itemId, name, image, description } = item;
 
   useEffect(() => {
     async function loadItem(itemId: number) {
@@ -36,14 +34,13 @@ export function Details({ itemId, onDone }: Props) {
       </div>
     );
   }
-  const { name, image, description } = item;
   return (
     <div className="container">
       <div className="flex flex-col">
         <div className="flex-auto p-6">
-          <div onClick={onDone} className="p-3 text-gray-600 cursor-pointer">
+          <Link to="/" className="p-3 text-gray-600 cursor-pointer">
             &lt; Back to Dashboard
-          </div>
+          </Link>
           <div className="flex flex-wrap mb-4">
             <div className="w-full sm:w-1/2 md:w-2/5 pt-2 px-4">
               <img
