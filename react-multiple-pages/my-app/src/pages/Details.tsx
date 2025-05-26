@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { type Item, readItem } from '../lib/read';
 
 export function Details() {
+  const { itemId } = useParams();
   const [item, setItem] = useState<Item>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
-  const { itemId, name, image, description } = item;
 
   useEffect(() => {
     async function loadItem(itemId: number) {
@@ -34,6 +34,7 @@ export function Details() {
       </div>
     );
   }
+  const { name, image, description } = item;
   return (
     <div className="container">
       <div className="flex flex-col">
