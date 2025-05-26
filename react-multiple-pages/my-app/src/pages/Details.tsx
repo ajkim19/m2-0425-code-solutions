@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { type Item, readItem } from '../lib/read';
 
 export function Details() {
   const { itemId } = useParams();
+  const navigate = useNavigate();
   const [item, setItem] = useState<Item>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
@@ -24,6 +25,11 @@ export function Details() {
       loadItem(+itemId);
     }
   }, [itemId]);
+
+  function handleSave() {
+    alert(`Saved ${item?.name}`);
+    navigate('/about');
+  }
 
   if (isLoading) return <div>Loading...</div>;
   if (error || !item) {
@@ -57,6 +63,9 @@ export function Details() {
           </div>
         </div>
       </div>
+      <button onClick={handleSave} className="ml-4">
+        Save
+      </button>
     </div>
   );
 }
