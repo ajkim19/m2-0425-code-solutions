@@ -14,11 +14,18 @@ Answer the following questions in the provided markdown file before turning in t
 - .showModal() – Displays it as a modal (user can’t interact with the rest of the page until it’s closed).
 - .close() – Hides the dialog.
 
-3. How do you manipulate child components in React? Why will that no work for the `<dialog>` element?
+3. How do you manipulate child components in React? Why will that not work for the `<dialog>` element?
+
+- The `<dialog>` element requires imperative control (e.g. `showModal()`), which doesn't sync well with React's declarative rendering model.
+- React doesn’t know you’ve opened or closed the dialog unless you track it in state manually or use refs.
 
 4. How do you call the dialog element's functions in React?
 
+- You do this by utilizing the JSX ref attribute
+
 5. How can you render nested components or JSX elements in React?
+
+- By making use of the children prop
 
 ## Notes
 
