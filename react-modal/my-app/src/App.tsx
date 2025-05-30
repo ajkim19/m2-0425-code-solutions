@@ -9,6 +9,10 @@ function App() {
   const closeModal = () => {
     modal.current?.close();
   };
+  const handleDelete = () => {
+    alert('Item deleted!');
+    modal.current?.close();
+  };
 
   return (
     <>
@@ -16,7 +20,7 @@ function App() {
       <dialog ref={modal}>
         <p>Are you sure you want to delete this item?</p>
         <button onClick={closeModal}>Cancel</button>
-        <button>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </dialog>
     </>
   );
