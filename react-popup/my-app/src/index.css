@@ -55,6 +55,28 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.menu-wrapper {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background-color: white;
+  padding: 0;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.menu li:hover {
+  background-color: #f0f0f0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
