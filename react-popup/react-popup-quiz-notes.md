@@ -6,7 +6,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 1. What is a React Portal?
 
-- A React Portal is a way to render a component or JSX subtree outside of the main React component hierarchy, while still preserving the React context and event handling.
+- A React Portal is a mechanism to render a component or JSX subtree outside of the main React component hierarchy, while still preserving the React context and event handling.
   - `ReactDOM.createPortal(child, container)`
 
 2. Where does a Portal get rendered in the DOM?

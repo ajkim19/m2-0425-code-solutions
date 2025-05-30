@@ -12,7 +12,11 @@ export default function App() {
         Pop up!
       </button>
       <p>Paragraph Below Popup</p>
-      <Popup isOpen={isOpen} />
+      <Popup
+        isOpen={isOpen}
+        positionTo={buttonRef.current}
+        onClose={() => setIsOpen(false)}
+      />
     </>
   );
 }
