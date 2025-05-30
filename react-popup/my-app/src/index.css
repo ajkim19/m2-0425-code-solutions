@@ -72,12 +72,12 @@ button:focus-visible {
   padding: 0;
 }
 
-.menu li {
+.item {
   padding: 8px 16px;
   cursor: pointer;
 }
 
-.menu li:hover {
+.item li:hover {
   background-color: #f0f0f0;
 }
 
