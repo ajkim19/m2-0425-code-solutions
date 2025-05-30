@@ -21,7 +21,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 4. How do you call the dialog element's functions in React?
 
-- You do this by utilizing the JSX ref attribute
+- You do this by utilizing the JSX ref
 
 5. How can you render nested components or JSX elements in React?
 
