@@ -10,13 +10,12 @@ export default function Modal({ children, isOpen, onClose }: Props) {
   const modal = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const dialog = modal.current;
-    if (!dialog) return;
+    if (!modal.current) return;
 
     if (isOpen) {
-      if (!dialog.open) dialog.showModal();
+      if (!modal.current.open) modal.current.showModal();
     } else {
-      if (dialog.open) dialog.close();
+      if (modal.current.open) modal.current.close();
     }
   }, [isOpen]);
 
