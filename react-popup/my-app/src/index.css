@@ -47,7 +47,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border: 1px solid #646cff;
 }
 
 button:focus,
@@ -59,7 +59,7 @@ button:focus-visible {
   margin: 0 auto;
 }
 
-.wrapper {
+.menu-wrapper {
   border: 1px solid #aaa;
   border-radius: 4px;
   background-color: #202020;
@@ -72,13 +72,13 @@ button:focus-visible {
   padding: 0;
 }
 
-#item {
+.menu li {
   padding: 8px 16px;
   cursor: pointer;
 }
 
-#item li:hover {
-  background-color: #9f9f9f;
+.menu li:hover {
+  background-color: rgb(159, 159, 159);
 }
 
 @media (prefers-color-scheme: light) {
