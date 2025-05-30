@@ -16,6 +16,7 @@ export default function App() {
         isOpen={isOpen}
         positionTo={buttonRef.current}
         onClose={() => setIsOpen(false)}
+        opacity={0.5}
       />
     </>
   );
