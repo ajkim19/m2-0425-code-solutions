@@ -1,26 +1,23 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import Modal from './Modal';
 import './App.css';
 
 function App() {
-  const modal = useRef<HTMLDialogElement>(null);
-  const openModal = () => {
-    modal.current?.showModal();
-  };
-  const closeModal = () => {
-    modal.current?.close();
-  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openDialog = () => setIsOpen(true);
+  const closeDialog = () => setIsOpen(false);
   const handleDelete = () => {
-    alert('Item deleted!');
-    modal.current?.close();
+    alert('Deleted!');
+    closeDialog();
   };
 
   return (
     <>
-      <button onClick={openModal}>Delete Me!</button>
-      <Modal>
+      <button onClick={openDialog}>Delete Me!</button>
+      <Modal isOpen={isOpen} onClose={closeDialog}>
         <p>Are you sure you want to delete this item?</p>
-        <button onClick={closeModal}>Cancel</button>
+        <button onClick={closeDialog}>Cancel</button>
         <button onClick={handleDelete}>Delete</button>
       </Modal>
     </>

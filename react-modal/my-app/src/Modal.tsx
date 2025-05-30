@@ -3,9 +3,10 @@ import React, { useRef, useEffect } from 'react';
 type Props = {
   children: React.ReactNode;
   isOpen: boolean;
+  onClose: () => void;
 };
 
-export default function Modal({ children, isOpen }: Props) {
+export default function Modal({ children, isOpen, onClose }: Props) {
   const modal = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -19,5 +20,9 @@ export default function Modal({ children, isOpen }: Props) {
     }
   }, [isOpen]);
 
-  return <dialog ref={modal}>{children}</dialog>;
+  return (
+    <dialog ref={modal} onClose={onClose}>
+      {children}
+    </dialog>
+  );
 }
