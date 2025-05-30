@@ -1,7 +1,7 @@
 export default function Popup() {
   return (
-    <div className="menu-wrapper">
-      <ul className="menu">
+    <div className="menu">
+      <ul className="menu-items">
         <li>Item 1</li>
         <li>Item 2</li>
         <li>Item 3</li>
