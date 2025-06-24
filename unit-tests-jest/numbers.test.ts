@@ -1,4 +1,4 @@
-import { evenNumbers, toDollars } from './numbers';
+import { evenNumbers, toDollars, divideBy } from './numbers';
 
 describe('evenNumbers', () => {
   it('returns the even numbers', () => {
@@ -13,5 +13,14 @@ describe('toDollars', () => {
     const amount = 19;
     const result = toDollars(amount);
     expect(result).toEqual('$19.00');
+  });
+});
+
+describe('divideBy', () => {
+  it('returns the divided numbers', () => {
+    const numbers = [3, 6, 9, 27, 45];
+    const divisor = 3;
+    const result = divideBy(numbers, divisor);
+    expect(result).toEqual([1, 2, 3, 9, 15]);
   });
 });
