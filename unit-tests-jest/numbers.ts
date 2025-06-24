@@ -33,7 +33,7 @@ export function multiplyBy(
 ): Record<string, unknown> {
   const result: Record<string, unknown> = {};
   Object.entries(obj).forEach(([key, value]) => {
-    result[key] = Number(value) * multiplier + 1;
+    result[key] = typeof value === 'number' ? value * multiplier : value;
   });
   return result;
 }
