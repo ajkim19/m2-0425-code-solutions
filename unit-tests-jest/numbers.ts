@@ -2,7 +2,7 @@
  * Returns a new array that contains only the even numbers in the given array.
  */
 export function evenNumbers(numbers: number[]): number[] {
-  return numbers.filter((n) => n % 2);
+  return numbers.filter((n) => n % 2 === 0);
 }
 
 /**

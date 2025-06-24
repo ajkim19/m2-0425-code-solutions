@@ -19,6 +19,8 @@ Answer the following questions in the provided markdown file before turning in t
 3. What code should be tested with a unit test? What code is not well suited for unit tests?
 
 - Small pieces of code that can be logically isolated
+- Tests should be used for exported functions and components, not implementation details.
+- Only the externally visible behavior of an exported function or component should be tested.
 
 4. What is Jest? What are some other popular JavaScript unit testing frameworks?
 
