@@ -1,22 +1,24 @@
 /* exported uniqueQuadratic, uniqueLinear */
 
 function uniqueLinear(words) {
-  const seen = {}; // _ * _ = O(?)
-  const unique = []; // _ * _ = O(?)
+  const seen = {}; // 1 * 1 = O(1)
+  const unique = []; // 1 * 1 = O(1)
   for (
-    let i = 0; // _ * _ = O(?)
-    i < words.length; // _ * _ = O(?)
-    i++ // _ * _ = O(?)
+    let i = 0; // 1 * 1 = O(1)
+    i < words.length; // 2 * n = O(2n) ~= O(n)
+    i++ // 1 * n = O(n)
   ) {
-    const word = words[i]; // _ * _ = O(?)
+    const word = words[i]; // 2 * n = O(2n) ~= O(n)
     if (!seen[word]) {
-      // _ * _ = O(?)
-      seen[word] = true; // _ * _ = O(?)
-      unique[unique.length] = word; // _ * _ = O(?)
+      // 1 * n = O(n)
+      seen[word] = true; // 2 * n = O(2n) ~= O(n)
+      unique[unique.length] = word; // 3 * n = O(3n) ~= O(n)
     }
   }
-  return unique; // _ * _ = O(?)
-} // Big O Notation for uniqueLinear: O(?)
+  return unique; // 1 * 1 = O(1)
+}
+
+// Big O Notation for uniqueLinear: O(n)
 
 function uniqueQuadratic(words) {
   const unique = []; // _ * _ = O(?)
