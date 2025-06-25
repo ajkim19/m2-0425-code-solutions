@@ -10,16 +10,22 @@ describe('evenNumbers', () => {
 });
 
 describe('toDollars', () => {
-  it('returns the dollar amount as a string', () => {
+  it('formats integer to the dollar amount as a string', () => {
     const amount = 19;
     const result = toDollars(amount);
     const expected = '$19.00';
     expect(result).toEqual(expected);
   });
+  it('formats decimals with just two digits, rounding up', () => {
+    const amount = 5.3999;
+    const result = toDollars(amount);
+    const expected = '$5.40';
+    expect(result).toEqual(expected);
+  });
 });
 
 describe('divideBy', () => {
-  it('returns the divided numbers', () => {
+  it('divides all values of type number by divisor', () => {
     const numbers = [3, 6, 9, 27, 45];
     const divisor = 3;
     const result = divideBy(numbers, divisor);
@@ -29,7 +35,7 @@ describe('divideBy', () => {
 });
 
 describe('multiplyBy', () => {
-  it('returns the divided numbers', () => {
+  it('multiplies all values of type number by multiplier', () => {
     const numbers = {
       a: 1,
       b: 2,

@@ -9,7 +9,7 @@ export function evenNumbers(numbers: number[]): number[] {
  * Returns a number formatted in dollars and cents.
  */
 export function toDollars(amount: number): string {
-  return `$${amount}.00`;
+  return `$${amount.toFixed(2)}`;
 }
 
 /**
@@ -17,10 +17,7 @@ export function toDollars(amount: number): string {
  * given divisor. Does not modify the original array.
  */
 export function divideBy(numbers: number[], divisor: number): number[] {
-  for (let i = 0; i < numbers.length; i++) {
-    numbers[i] = numbers[i] / divisor;
-  }
-  return numbers;
+  return numbers.map((n) => n / divisor);
 }
 
 /**
@@ -37,3 +34,13 @@ export function multiplyBy(
   });
   return result;
 }
+
+// export function multiplyBy(
+//   obj: Record<string, unknown>,
+//   multiplier: number
+// ): Record<string, unknown> {
+//   Object.entries(obj).forEach(([key, value]) => {
+//     if (typeof value === 'number') obj[key] = value * multiplier;
+//   });
+//   return obj;
+// }

@@ -21,6 +21,7 @@ Answer the following questions in the provided markdown file before turning in t
 - Small pieces of code that can be logically isolated
 - Tests should be used for exported functions and components, not implementation details.
 - Only the externally visible behavior of an exported function or component should be tested.
+- Not good nd-to-end testing
 
 4. What is Jest? What are some other popular JavaScript unit testing frameworks?
 
