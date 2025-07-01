@@ -4,13 +4,26 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- Why do we use databases in Web development?
+1. Why do we use databases in Web development?
 
-- What is PostgreSQL and what are some alternative relational databases?
+- They are used to provide a centralized location for application data to quickly retrieve or store complex data in an organized fashion.
 
-- What are some advantages of learning a relational database?
+2. What is PostgreSQL and what are some alternative relational databases?
 
-- What is one way to see if PostgreSQL is running?
+- PostgreSQL is a powerful, free, open source Relational Database Management System (RDBMS).
+- MySQL
+- SQL Server by Microsoft
+- Oracle by Oracle Corporation
+- SQLite
+
+3. What are some advantages of learning a relational database?
+
+- They support good guarantees about data integrity.
+  - They can store and modify data in a way that makes data corruption as unlikely as possible.
+
+4. What is one way to see if PostgreSQL is running?
+
+- `sudo service postgresql status`
 
 ## Notes
 
