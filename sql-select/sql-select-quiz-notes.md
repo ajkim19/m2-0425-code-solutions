@@ -16,12 +16,12 @@ Answer the following questions in the provided markdown file before turning in t
 
 2. How do you retrieve specific columns from a database table?
 
-- `SELECT `_`"attribute_name1"`_`, `_`"attribute_name2"`_`from`_`"able_name"`_`;`
+- `SELECT`_`"attribute_name1"`_`, `_`"attribute_name2"`_`FROM`_`"table_name"`_`;`
 
 3. How do you filter rows based on some specific criteria?
 
 - `SELECT * FROM `_`"table_name"`_`;`
-- `WHERE `_`"attribute_name"`_`=`_`'attribute_value'`_` `;
+- `WHERE`_`"attribute_name"`_`=`_`'attribute_value'`_` `;
 
 4. What are the benefits of formatting your SQL?
 
@@ -36,15 +36,15 @@ Answer the following questions in the provided markdown file before turning in t
 
 6. How do you limit the number of rows returned in a result set?
 
-- `LIMIT `_`number`_`;`
+- `LIMIT`_`number`_`;`
 
 7. How do you retrieve all columns from a database table?
 
-- `SELECT * FORM `_`"table_name"`_`;`
+- `SELECT * FROM`_`"table_name"`_`;`
 
 8. How do you control the sort order of a result set?
 
-- `ORDER BY `_`"attribute_name"`_`;`
+- `ORDER BY`_`"attribute_name"`_`;`
 
 ## Notes
 
