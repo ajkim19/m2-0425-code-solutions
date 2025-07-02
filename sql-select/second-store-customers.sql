@@ -1,2 +1,2 @@
-SELECT "email" FROM "stores"
+SELECT "email" FROM "customers"
 WHERE "storeId" = 2;
