@@ -20,7 +20,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 3. How do you filter rows based on some specific criteria?
 
-- `SELECT * FROM `_`"table_name"`_`;`
+- `SELECT * FROM `_`"table_name"`_` `
 - `WHERE`_`"attribute_name"`_`=`_`'attribute_value'`_` `;
 
 4. What are the benefits of formatting your SQL?
