@@ -7,7 +7,7 @@ Answer the following questions in the provided markdown file before turning in t
 1. What is a database schema?
 
 - A schema is a collection of tables.
-- It defines how the data in a relational database should be organized.
+- It defines HOW the data in a relational database should be organized.
 
 2. What is a table?
 
@@ -15,7 +15,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 3. What is a row?
 
-- Each row is a record in that spreadsheet
+- Each row is a record/cell in that spreadsheet
 - A horizontally aligned series of
 
 4. What is an attribute and what other names are used to describe them?
