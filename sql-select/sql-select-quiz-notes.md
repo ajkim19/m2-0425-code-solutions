@@ -36,15 +36,15 @@ Answer the following questions in the provided markdown file before turning in t
 
 6. How do you limit the number of rows returned in a result set?
 
-- `limit `_`number`_`;`
+- `LIMIT `_`number`_`;`
 
 7. How do you retrieve all columns from a database table?
 
-- `select * from `_`"table_name"`_`;`
+- `SELECT * FORM `_`"table_name"`_`;`
 
 8. How do you control the sort order of a result set?
 
-- `order by `_`"attribute_name"`_`;`
+- `ORDER BY `_`"attribute_name"`_`;`
 
 ## Notes
 
