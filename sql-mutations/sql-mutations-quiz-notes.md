@@ -4,23 +4,57 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- What are the SQL _CRUD_ operations?
+1. What are the SQL _CRUD_ operations?
 
-- How do you add a row to a SQL table?
+- Create - `INSERT`
+- Read - `SELECT`
+- Update - `UPDATE`
+- Delete - `DELETE`
 
-- How do you add multiple rows to a SQL table at once?
+2. How do you add a row to a SQL table?
 
-- How do you update rows in a database table?
+`INSERT INTO table_name (column_name1, column_name2)`
+`VALUES (value1, value2);`
 
-- How do you delete rows from a database table?
+3. How do you add multiple rows to a SQL table at once?
 
-- Why is it important to include a `where` clause in your `update` and `delete` statements?
+`INSERT INTO table_name (column_name1, column_name2)`
+`VALUES`
+`  (value1a, value1b),`
+`  (value2a, value2b),`
+`  (value3a, value3b);`
 
-- How do you accidentally delete or update all rows in a table?
+4. How do you update rows in a database table?
 
-- How do you get back the modified row without a separate `select` statement?
+`UPDATE table_name`
+`SET column_name1 = value1, column_name2 = value2`
+`WHERE condition;`
 
-- Why did you get an error when trying to delete certain films?
+5. How do you delete rows from a database table?
+
+`DELETE FROM table_name`
+`WHERE condition;`
+
+6. Why is it important to include a `where` clause in your `update` and `delete` statements?
+
+- `UPDATE` would modify every row in the table
+- `DELETE` would remove all data, potentially causing irreversible data loss
+
+7. How do you accidentally delete or update all rows in a table?
+
+- By using `DELETE` or `UPDATE` without a `WHERE` clause
+
+8. How do you get back the modified row without a separate `select` statement?
+
+- Use the `RETURNING` clause
+  `UPDATE table_name`
+  `SET column_name = value`
+  `WHERE condition`
+  `RETURNING *;`
+
+9. Why did you get an error when trying to delete certain films?
+
+-
 
 ## Notes
 
