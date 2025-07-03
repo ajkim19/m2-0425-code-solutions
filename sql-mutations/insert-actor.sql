@@ -3,5 +3,4 @@ VALUES ('Tom', 'Hanks');
 
 SELECT * FROM "actors"
 WHERE "firstName" = 'Tom'
-AND
-WHERE "lastName" = 'Hanks';
+  AND "lastName" = 'Hanks';
