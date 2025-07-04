@@ -37,6 +37,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 6. Why is it important to include a `where` clause in your `update` and `delete` statements?
 
+- The change will be applied
 - `UPDATE` would modify every row in the table
 - `DELETE` would remove all data, potentially causing irreversible data loss
 
@@ -54,7 +55,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 9. Why did you get an error when trying to delete certain films?
 
--
+- Constraints were applied to certain attributes.
 
 ## Notes
 
