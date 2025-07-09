@@ -15,6 +15,10 @@ Answer the following questions in the provided markdown file before turning in t
   `  from "table_name1"`
   `  join "table_name2" using ("supplierId");`
 
+  `select *`
+  `  from "table_name1"`
+  `  join "table_name2" using ("supplierId");`
+
 3. How do you temporarily rename columns or tables in a SQL statement?
 
 - The AS keyword is used to create an alias
