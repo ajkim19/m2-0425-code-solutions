@@ -1,2 +1,2 @@
-select count("inventoryId")
+select count(*)
   from "inventory"
