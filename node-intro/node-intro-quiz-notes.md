@@ -21,7 +21,11 @@ Answer the following questions in the provided markdown file before turning in t
 
 4. What is a REPL?
 
-- The Node.js REPL is a command line interface (CLI) that uses Node.js is to run small bits TypeScript code to confirm how it works.
+- **Read**: The REPL reads the code input by the user.
+- **Eval**: It then evaluates the code.
+- **Print**: The result of the evaluation is printed to the user.
+- **Loop**: The process repeats, allowing for continuous interaction.
+- The Node.js **REPL** is a command line interface (CLI) that uses Node.js is to run small bits TypeScript code to confirm how it works.
 
 ## Notes
 
