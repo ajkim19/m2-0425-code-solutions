@@ -15,7 +15,7 @@ app.get('/notes/', (req, res) => {
   res.send('This is /notes');
 });
 
-app.get('/notes/:noteId', (req, res) => {
+app.post('/notes/:noteId', (req, res) => {
   const { noteId } = req.params;
   res.send(`This is /notes/${noteId}`);
 });
