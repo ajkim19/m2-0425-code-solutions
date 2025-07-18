@@ -8,16 +8,16 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('This is /');
+  res.send('This is a response to a GET request to /');
 });
 
 app.get('/notes/', (req, res) => {
-  res.send('This is /notes');
+  res.send('This is a response to a GET request to /notes');
 });
 
 app.post('/notes/:noteId', (req, res) => {
   const { noteId } = req.params;
-  res.send(`This is /notes/${noteId}`);
+  res.send(`This is a response to a POST request to /notes/${noteId}`);
 });
 
 app.listen(8080, () => {
