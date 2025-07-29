@@ -59,24 +59,26 @@ app.put('/api/notes/:noteId', async (req, res, next) => {
   }
 });
 
-app.delete('/api/notes/:noteId', async (req, res) => {
+app.delete('/api/notes/:noteId', async (req, res, next) => {
   try {
     const { noteId } = req.params;
+
     if (noteId === undefined) {
-      res.status(400).send({ error: 'noteId is required' });
-      return;
+      throw new ClientError(400, 'noteId is required');
     }
-    await deleteNote(+noteId);
+
+    await deleteNote(Number(noteId));
     res.send(`deleted ${noteId}`);
   } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: 'an unexpected error occurred' });
+    next(err);
   }
 });
 
 app.listen(8080, () => {
   console.log('listening on port 8080');
 });
+
+app.use(errorMiddleware);
 
 //* **** Mock data handling functions
 
@@ -113,5 +115,3 @@ async function deleteNote(id: number): Promise<number> {
     }, 10);
   });
 }
-
-app.use(errorMiddleware);
