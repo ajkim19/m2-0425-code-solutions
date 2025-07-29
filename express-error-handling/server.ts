@@ -35,27 +35,27 @@ app.post('/api/notes', async (req, res, next) => {
   }
 });
 
-app.put('/api/notes/:noteId', async (req, res) => {
+app.put('/api/notes/:noteId', async (req, res, next) => {
   try {
     const { noteId } = req.params;
     const { content } = req.query;
+
     if (noteId === undefined) {
-      res.status(400).send({ error: 'noteId is required' });
-      return;
+      throw new ClientError(400, 'noteId is required');
     }
     if (content === undefined) {
-      res.status(400).send({ error: 'content is required' });
-      return;
+      throw new ClientError(400, 'content is required');
     }
-    const note = {
-      noteId: +noteId,
+
+    const note: Note = {
+      noteId: Number(noteId),
       content: String(content),
     };
+
     await writeNote(note);
     res.send(note);
   } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: 'an unexpected error occurred' });
+    next(err);
   }
 });
 
