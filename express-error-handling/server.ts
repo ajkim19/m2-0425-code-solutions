@@ -48,7 +48,7 @@ app.put('/api/notes/:noteId', async (req, res, next) => {
     }
 
     const note: Note = {
-      noteId: +noteId,
+      noteId: Number(noteId),
       content: String(content),
     };
 
