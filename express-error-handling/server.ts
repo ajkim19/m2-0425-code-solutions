@@ -8,13 +8,12 @@ type Note = {
 
 const app = express();
 
-app.get('/api/notes', async (req, res) => {
+app.get('/api/notes', async (req, res, next) => {
   try {
     const notes = await readNotes();
     res.send(notes);
   } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: 'an unexpected error occurred' });
+    next(err);
   }
 });
 
