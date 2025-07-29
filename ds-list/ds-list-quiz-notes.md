@@ -4,17 +4,38 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- Briefly describe the List data structure.
+1. Briefly describe the List data structure.
 
-- What are some examples of when you would use a List?
+- A list is a data structure that holds its data in a contiguous block of memory.
 
-- How do you read an element of a List given its index? What is its time complexity?
+2. What are some examples of when you would use a List?
 
-- How do you add an element into a List at a given index? What is its time complexity?
+- Linked List
+- Queue
+- Stack
 
-- How do you update an element in a List at a given index? What is its time complexity?
+3. How do you read an element of a List given its index? What is its time complexity?
 
-- How do you remove an element from a List at a given index? What is its time complexity?
+- Any element in a list can be read from memory in constant time, if you know its index.
+  - An element in a list can be located in memory by multiplying the index by the element size and adding the memory location of the first element in the list.
+- `list[index]`
+- O(1)
+
+4. How do you add an element into a List at a given index? What is its time complexity?
+
+-
+- `array.splice(index, 0, element)`
+- O(n)
+
+5. How do you update an element in a List at a given index? What is its time complexity?
+
+-
+- `list[index] = newValue`
+- O(1)
+
+6. How do you remove an element from a List at a given index? What is its time complexity?
+
+-
 
 ## Notes
 
