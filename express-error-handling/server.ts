@@ -75,8 +75,6 @@ app.delete('/api/notes/:noteId', async (req, res) => {
   }
 });
 
-app.use(errorMiddleware);
-
 app.listen(8080, () => {
   console.log('listening on port 8080');
 });
@@ -116,3 +114,5 @@ async function deleteNote(id: number): Promise<number> {
     }, 10);
   });
 }
+
+app.use(errorMiddleware);
