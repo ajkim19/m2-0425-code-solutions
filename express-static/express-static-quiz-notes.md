@@ -25,6 +25,7 @@ Answer the following questions in the provided markdown file before turning in t
 - `.png`, `.jpg`, `.svg`, `.gif` → Images
 - `.woff`, `.ttf`, `.eot` → Fonts
 - `.ico` → Favicon
+- `.mp3` → Music
 
 ### 4. What is a good way to serve application images using Express?
 
