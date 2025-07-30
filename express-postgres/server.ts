@@ -4,6 +4,8 @@ import { errorMiddleware } from './lib/index.js';
 
 const app = express();
 
+// Add new code here
+
 app.use(errorMiddleware);
 
 app.listen(8080, () => {
