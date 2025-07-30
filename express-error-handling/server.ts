@@ -48,7 +48,7 @@ app.put('/api/notes/:noteId', async (req, res, next) => {
     }
 
     const note: Note = {
-      noteId: Number(noteId),
+      noteId: +noteId,
       content: String(content),
     };
 
@@ -74,11 +74,11 @@ app.delete('/api/notes/:noteId', async (req, res, next) => {
   }
 });
 
+app.use(errorMiddleware);
+
 app.listen(8080, () => {
   console.log('listening on port 8080');
 });
-
-app.use(errorMiddleware);
 
 //* **** Mock data handling functions
 
