@@ -50,7 +50,7 @@ app.get('/api/films/:filmId', async (req, res, next) => {
   }
 });
 
-app.get('/api/films/:filmId', async (req, res, next) => {
+app.put('/api/films/:filmId', async (req, res, next) => {
   try {
     const { filmId } = req.params;
     const { title } = req.query;
@@ -58,12 +58,12 @@ app.get('/api/films/:filmId', async (req, res, next) => {
       throw new ClientError(400, 'filmId is required');
     }
     const sql = `
-    update film
-    set title = $1
-    where film_id = $2
-    returning *
+    update "films"
+    set "title" = $1
+    where "filmId" = $2
+    returning *;
     `;
-    const params = [filmId, title];
+    const params = [title, filmId];
     const result = await db.query(sql, params);
     const film = result.rows[0];
     if (!film) {
