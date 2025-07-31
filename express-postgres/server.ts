@@ -37,9 +37,33 @@ app.get('/api/films/:filmId', async (req, res, next) => {
     select *
     from "films"
     where "filmId" = $1;
-    limit 1;
     `;
     const params = [filmId];
+    const result = await db.query(sql, params);
+    const film = result.rows[0];
+    if (!film) {
+      throw new ClientError(404, `film ${filmId} not found`);
+    }
+    res.send(film);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get('/api/films/:filmId', async (req, res, next) => {
+  try {
+    const { filmId } = req.params;
+    const { title } = req.query;
+    if (filmId === undefined) {
+      throw new ClientError(400, 'filmId is required');
+    }
+    const sql = `
+    update film
+    set title = $1
+    where film_id = $2
+    returning *
+    `;
+    const params = [filmId, title];
     const result = await db.query(sql, params);
     const film = result.rows[0];
     if (!film) {
