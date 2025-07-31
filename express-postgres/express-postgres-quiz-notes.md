@@ -18,9 +18,13 @@ Answer the following questions in the provided markdown file before turning in t
 - A connection string (`connectionString`) can also be used to manage your connections.
 
   `const { Client } = require('pg');`
+  <br>
   `const client = new Client({`
+  <br>
   `  connectionString: 'postgres://username:password@localhost:5432/database_name'`
+  <br>
   `});`
+  <br>
   `client.connect();`
 
 - Alternatively, you can use environment variables for better security
@@ -34,11 +38,17 @@ Answer the following questions in the provided markdown file before turning in t
 - You call the `.query()` method on a `pg` client or pool instance
 
   `client.query('SELECT * FROM users WHERE id = $1', [userId], (err, result) => {`
+  <br>
   `  if (err) {`
+  <br>
   `    console.error(err);`
+  <br>
   `  } else {`
+  <br>
   `    console.log(result.rows);`
+  <br>
   `  }`
+  <br>
   `});`
 
 ### 4. How do you access the rows that get returned from the SQL query?
@@ -46,6 +56,7 @@ Answer the following questions in the provided markdown file before turning in t
 - The `.query()` method returns a `pg.Result` object. The actual data rows are in `result.rows`.
 
   `const result = await client.query('SELECT * FROM users');`
+  <br>
   `console.log(result.rows);  // Array of row objects`
 
 ### 5. What must you always remember to put around your asynchronous route handlers? Why?
@@ -70,7 +81,7 @@ Answer the following questions in the provided markdown file before turning in t
 
   - Vulnerable example:
 
-    ` const result = await client.query(` `` `SELECT * FROM users WHERE name = '${userInput}'` `` `); `
+    `` const result = await client.query(`SELECT * FROM users WHERE name = '${userInput}'`); ``
 
 ## Notes
 
