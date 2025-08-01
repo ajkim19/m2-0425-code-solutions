@@ -4,9 +4,13 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- What is the purpose of the HTTP `GET` method?
+### 1. What is the purpose of the HTTP `GET` method?
 
-- What is the appropriate `Content-Type` header for HTTP messages that contain JSON in their bodies?
+- It is used for retrieving and returning data.
+
+### 2. What is the appropriate `Content-Type` header for HTTP messages that contain JSON in their bodies?
+
+- `application/json; charset=utf-8`
 
 ## Notes
 
