@@ -30,13 +30,14 @@ app.get('/api/films', async (req, res, next) => {
 app.get('/api/films/:filmId', async (req, res, next) => {
   try {
     const { filmId } = req.params;
-    if (filmId === undefined) {
-      throw new ClientError(400, 'filmId is required');
+    console.log('filmId', filmId);
+    if (filmId === undefined || typeof Number(filmId) !== 'number') {
+      throw new ClientError(400, 'filmId is required and must be a number');
     }
     const sql = `
-    select *
-    from "films"
-    where "filmId" = $1;
+      select *
+      from "films"
+      where "filmId" = $1;
     `;
     const params = [filmId];
     const result = await db.query(sql, params);
@@ -56,6 +57,9 @@ app.put('/api/films/:filmId', async (req, res, next) => {
     const { title } = req.query;
     if (filmId === undefined) {
       throw new ClientError(400, 'filmId is required');
+    }
+    if (title === undefined) {
+      throw new ClientError(400, 'title is required');
     }
     const sql = `
     update "films"
