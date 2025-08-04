@@ -16,9 +16,9 @@ app.get('/api/countries', async (req, res, next) => {
   try {
     const sql = `
     select
-      count("cities"."cityId") as "cities"
-      "cities"."countryId" as "countryId",
-      "countries"."name" as "name",
+      count("cities"."cityId") as "cities",
+      "countries"."countryId" as "countryId",
+      "countries"."name" as "name"
     from "countries"
     join "cities" using ("countryId")
     group by "countryId"
