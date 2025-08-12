@@ -9,10 +9,31 @@
 //   score: number; // A number between 0 and 100
 // };
 
-// function validateGradeInput(name: any, course: any, score: any) {
-//   if (typeof name !== 'string') return false;
-//   if (typeof course !== 'string') return false;
-//   if (!Number.isInteger(score) || score < 0 || score > 100) return false;
+// function validateGrade(name: any, course: any, score: any) {
+//   if (typeof name !== 'string') {
+//     throw new ClientError(400, `Invalid name: ${name}`);
+//   }
+//   if (typeof course !== 'string') {
+//     throw new ClientError(400, `Invalid course: ${course}`);
+//   }
+//   if (!Number.isInteger(+score) || score < 0 || score > 100) {
+//     if (score < 0) {
+//       throw new ClientError(
+//         400,
+//         `Invalid score: ${score}. Score must be greater than 0.`
+//       );
+//     } else if (score > 100) {
+//       throw new ClientError(
+//         400,
+//         `Invalid score: ${score}. Score must be less than 100.`
+//       );
+//     } else {
+//       throw new ClientError(
+//         400,
+//         `Invalid score: ${score}. Score must be a number`
+//       );
+//     }
+//   }
 //   return true;
 // }
 
@@ -23,6 +44,20 @@
 
 // const app = express();
 // app.use(express.json());
+
+// ///////////////////////////////////////////
+
+// app.get('/api/grades', async (req, res, next) => {
+//   try {
+//     const sql = `SELECT * FROM grades`;
+//     const result = await db.query(sql);
+//     res.status(200).json(result.rows);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
+// ///////////////////////////////////////////
 
 // app.use(errorMiddleware);
 
