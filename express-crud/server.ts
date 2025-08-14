@@ -62,23 +62,10 @@
 //   }
 // });
 
-// app.get('/api/grades/:gradeId', async (req, res, next) => {
-//   try {
-//     const { gradeId } = req.params;
-//     if (!Number.isInteger(+gradeId)) {
-//       throw new ClientError(400, `Non-integer cityId: ${cityId}`);
-//     }
-
-//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
-//     return res.status(400).json({ error: 'Invalid gradeId' });
-//   }
-
-//   const sql = `SELECT * FROM grades WHERE "gradeId" = $1`
-
 // /////////////////////////////////////////
 
 // app.use(errorMiddleware);
 
 // app.listen(8080, () => {
 //   console.log('listening on port 8080');
-// });
+// })}
