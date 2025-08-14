@@ -13,12 +13,14 @@
 //   if (typeof name !== 'string') {
 //     throw new ClientError(400, `Invalid name: ${name}`);
 //   }
+//   return true;
 // }
 
 // function validateCourse(course: any) {
 //   if (typeof course !== 'string') {
 //     throw new ClientError(400, `Invalid course: ${course}`);
 //   }
+//   return true;
 // }
 
 // function validateScore(score: any) {
@@ -40,6 +42,7 @@
 //       );
 //     }
 //   }
+//   return true;
 // }
 
 // const db = new pg.Pool({
@@ -62,10 +65,27 @@
 //   }
 // });
 
+// app.get('/api/grades/:gradeId', async (req, res, next) => {
+//   try {
+//     const { gradeId } = req.params;
+//     if (!Number.isInteger(gradeId) || +gradeId <= 0) {
+//       return res.status(400).json({ error: 'Invalid gradeId' });
+//     }
+//     const sql = `SELECT * FROM grades WHERE "gradeId" = $1`
+//     const params = [cityId];
+//     const result = await db.query(sql, params);
+//     const city = result.rows[0];
+//     if (!city) throw new ClientError(404, `city ${cityId} not found`);
+//     res.json(city);
+//   } catch (err) {
+//     next(err);
+//   }
+// }
+
 // /////////////////////////////////////////
 
 // app.use(errorMiddleware);
 
 // app.listen(8080, () => {
 //   console.log('listening on port 8080');
-// })}
+// })
