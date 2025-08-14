@@ -71,16 +71,18 @@
 //     if (!Number.isInteger(gradeId) || +gradeId <= 0) {
 //       return res.status(400).json({ error: 'Invalid gradeId' });
 //     }
-//     const sql = `SELECT * FROM grades WHERE "gradeId" = $1`
-//     const params = [cityId];
+//     const sql = `
+//       select * from grades
+//       where "gradeId" = $1`;
+//     const params = [gradeId];
 //     const result = await db.query(sql, params);
-//     const city = result.rows[0];
-//     if (!city) throw new ClientError(404, `city ${cityId} not found`);
-//     res.json(city);
+//     const grade = result.rows[0];
+//     if (!grade) throw new ClientError(404, `Grade ID ${gradeId} not found`);
+//     res.json(grade);
 //   } catch (err) {
 //     next(err);
 //   }
-// }
+// });
 
 // /////////////////////////////////////////
 
@@ -88,4 +90,4 @@
 
 // app.listen(8080, () => {
 //   console.log('listening on port 8080');
-// })
+// });
