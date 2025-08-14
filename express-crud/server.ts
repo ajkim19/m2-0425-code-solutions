@@ -9,13 +9,19 @@
 //   score: number; // A number between 0 and 100
 // };
 
-// function validateGrade(name: any, course: any, score: any) {
+// function validateName(name: any) {
 //   if (typeof name !== 'string') {
 //     throw new ClientError(400, `Invalid name: ${name}`);
 //   }
+// }
+
+// function validateCourse(course: any) {
 //   if (typeof course !== 'string') {
 //     throw new ClientError(400, `Invalid course: ${course}`);
 //   }
+// }
+
+// function validateScore(score: any) {
 //   if (!Number.isInteger(+score) || score < 0 || score > 100) {
 //     if (score < 0) {
 //       throw new ClientError(
@@ -34,7 +40,6 @@
 //       );
 //     }
 //   }
-//   return true;
 // }
 
 // const db = new pg.Pool({
@@ -45,11 +50,11 @@
 // const app = express();
 // app.use(express.json());
 
-// ///////////////////////////////////////////
+// /////////////////////////////////////////
 
 // app.get('/api/grades', async (req, res, next) => {
 //   try {
-//     const sql = `SELECT * FROM grades`;
+//     const sql = `select * from grades`;
 //     const result = await db.query(sql);
 //     res.status(200).json(result.rows);
 //   } catch (err) {
@@ -57,7 +62,20 @@
 //   }
 // });
 
-// ///////////////////////////////////////////
+// app.get('/api/grades/:gradeId', async (req, res, next) => {
+//   try {
+//     const { gradeId } = req.params;
+//     if (!Number.isInteger(+gradeId)) {
+//       throw new ClientError(400, `Non-integer cityId: ${cityId}`);
+//     }
+
+//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
+//     return res.status(400).json({ error: 'Invalid gradeId' });
+//   }
+
+//   const sql = `SELECT * FROM grades WHERE "gradeId" = $1`
+
+// /////////////////////////////////////////
 
 // app.use(errorMiddleware);
 
