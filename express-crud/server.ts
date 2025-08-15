@@ -125,12 +125,12 @@ app.put('/api/grades/:gradeId', async (req, res, next) => {
 
 app.delete('/api/grades/:gradeId', async (req, res, next) => {
   try {
-    const gradeId = Number(req.params.gradeId);
+    const { gradeId } = req.params;
     validateGradeId(gradeId);
     const sql = `
       delete
       from "grades"
-      where "gradeId" = $4
+      where "gradeId" = $1
       returning *;
     `;
     const params = [gradeId];
