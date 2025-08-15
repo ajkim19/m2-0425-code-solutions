@@ -13,7 +13,7 @@
 //   if (!Number.isInteger(gradeId) || +gradeId <= 0) {
 //     throw new ClientError(400, `Invalid gradeId: ${gradeId}`);
 //   }
-// };
+// }
 
 // function validateGrade(name: any, course: any, score: any): void {
 //   if (typeof name !== 'string') {
@@ -75,6 +75,9 @@
 //     if (!grade) throw new ClientError(404, `Grade ID ${gradeId} not found`);
 //     res.json(grade);
 //   } catch (err) {
+//     if (err instanceof Error && err.message.startsWith('Invalid')) {
+//       return res.status(400).json({ error: err.message });
+//     }
 //     next(err);
 //   }
 // });
@@ -103,7 +106,8 @@
 // app.post('/api/grades/:gradeId', async (req, res, next) => {
 //   try {
 //     const { name, course, score, gradeId } = req.body;
-//     validateGrade(name, course, score, gradeId);
+//     validateGradeId(gradeId);
+//     validateGrade(name, course, score);
 //     const sql = `
 //       insert into "grades" ("name", "course", "score")
 //       values ($1, $2, $3)
