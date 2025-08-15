@@ -43,7 +43,7 @@ const db = new pg.Pool({
 const app = express();
 app.use(express.json());
 
-/// //////////////////////////////////////
+/// ///////////////////////////////////////
 
 app.get('/api/grades', async (req, res, next) => {
   try {
@@ -143,7 +143,7 @@ app.delete('/api/grades/:gradeId', async (req, res, next) => {
   }
 });
 
-/// //////////////////////////////////////
+/// ///////////////////////////////////////
 
 app.use(errorMiddleware);
 
