@@ -9,6 +9,12 @@
 //   score: number; // A number between 0 and 100
 // };
 
+// function validateGradeId(gradeId: any): void {
+//   if (!Number.isInteger(gradeId) || +gradeId <= 0) {
+//     throw new ClientError(400, `Invalid gradeId: ${gradeId}`);
+//   }
+// };
+
 // function validateGrade(name: any, course: any, score: any): void {
 //   if (typeof name !== 'string') {
 //     throw new ClientError(400, `Invalid name: ${name}`);
@@ -20,17 +26,17 @@
 //     if (score < 0) {
 //       throw new ClientError(
 //         400,
-//         `Invalid score: ${score}. Score must be greater than 0.`
+//         `Invalid score: ${score}. score must be greater than 0.`
 //       );
 //     } else if (score > 100) {
 //       throw new ClientError(
 //         400,
-//         `Invalid score: ${score}. Score must be less than 100.`
+//         `Invalid score: ${score}. score must be less than 100.`
 //       );
 //     } else {
 //       throw new ClientError(
 //         400,
-//         `Invalid score: ${score}. Score must be a number`
+//         `Invalid score: ${score}. score must be a number`
 //       );
 //     }
 //   }
@@ -59,9 +65,7 @@
 // app.get('/api/grades/:gradeId', async (req, res, next) => {
 //   try {
 //     const { gradeId } = req.params;
-//     if (!Number.isInteger(gradeId) || +gradeId <= 0) {
-//       return res.status(400).json({ error: 'Invalid gradeId' });
-//     }
+//     validateGradeId(gradeId);
 //     const sql = `
 //       select * from grades
 //       where "gradeId" = $1`;
@@ -85,6 +89,28 @@
 //       returning *;
 //     `;
 //     const params = [name, course, score];
+//     const result = await db.query(sql, params);
+//     const grade = result.rows[0];
+//     res.status(201).json(grade);
+//   } catch (err) {
+//     if (err instanceof Error && err.message.startsWith('Invalid')) {
+//       return res.status(400).json({ error: err.message });
+//     }
+//     next(err);
+//   }
+// });
+
+// app.post('/api/grades/:gradeId', async (req, res, next) => {
+//   try {
+//     const { name, course, score, gradeId } = req.body;
+//     validateGrade(name, course, score, gradeId);
+//     const sql = `
+//       insert into "grades" ("name", "course", "score")
+//       values ($1, $2, $3)
+//       where "gradeId" = $4
+//       returning *;
+//     `;
+//     const params = [gradeId, name, course, score];
 //     const result = await db.query(sql, params);
 //     const grade = result.rows[0];
 //     res.status(201).json(grade);
