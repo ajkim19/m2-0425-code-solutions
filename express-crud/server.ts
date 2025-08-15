@@ -78,10 +78,7 @@
 // app.post('/api/grades', async (req, res, next) => {
 //   try {
 //     const { name, course, score } = req.body;
-//     console.log('req.body', req.body);
-//     if (!name || !course || !score) {
-//       throw new ClientError(400, `name, course, and score are required`);
-//     }
+//     validateGrade(name, course, score);
 //     const sql = `
 //       insert into "grades" ("name", "course", "score")
 //       values ($1, $2, $3)
@@ -92,6 +89,9 @@
 //     const grade = result.rows[0];
 //     res.status(201).json(grade);
 //   } catch (err) {
+//     if (err instanceof Error && err.message.startsWith('Invalid')) {
+//       return res.status(400).json({ error: err.message });
+//     }
 //     next(err);
 //   }
 // });
