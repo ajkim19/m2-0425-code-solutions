@@ -109,12 +109,12 @@
 //     validateGradeId(gradeId);
 //     validateGrade(name, course, score);
 //     const sql = `
-//       insert into "grades" ("name", "course", "score")
-//       values ($1, $2, $3)
+//       update "grades"
+//       set name = $1, course = $2, score = $3
 //       where "gradeId" = $4
 //       returning *;
 //     `;
-//     const params = [gradeId, name, course, score];
+//     const params = [name, course, score, gradeId];
 //     const result = await db.query(sql, params);
 //     const grade = result.rows[0];
 //     res.status(201).json(grade);
