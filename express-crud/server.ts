@@ -72,7 +72,7 @@
 //     const params = [gradeId];
 //     const result = await db.query(sql, params);
 //     const grade = result.rows[0];
-//     if (!grade) throw new ClientError(404, `Grade ID ${gradeId} not found`);
+//     if (!grade) throw new ClientError(404, `gradeId ${gradeId} not found`);
 //     res.json(grade);
 //   } catch (err) {
 //     if (err instanceof Error && err.message.startsWith('Invalid')) {
@@ -117,11 +117,32 @@
 //     const params = [name, course, score, gradeId];
 //     const result = await db.query(sql, params);
 //     const grade = result.rows[0];
-//     res.status(201).json(grade);
+//     if (!grade) throw new ClientError(404, `gradeId ${gradeId} not found`);
+//     res.status(200).json(grade);
 //   } catch (err) {
 //     if (err instanceof Error && err.message.startsWith('Invalid')) {
 //       return res.status(400).json({ error: err.message });
 //     }
+//     next(err);
+//   }
+// });
+
+// app.delete('/api/grades/:gradeId', async (req, res, next) => {
+//   try {
+//     const gradeId = Number(req.params.gradeId);
+//     validateGradeId(gradeId);
+//     const sql = `
+//       delete
+//       from "grades"
+//       where "gradeId" = $4
+//       returning *;
+//     `;
+//     const params = [gradeId];
+//     const result = await db.query(sql, params);
+//     const grade = result.rows[0];
+//     if (!grade) throw new ClientError(404, `gradeId ${gradeId} not found`);
+//     res.status(204).json(grade);
+//   } catch (err) {
 //     next(err);
 //   }
 // });
