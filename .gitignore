@@ -7,3 +7,5 @@ node_modules
 react-*/server/public/*.js*
 **/package-lock.json
 **/package.json
+**/express-get-solution
+**/express-mutations-solution
