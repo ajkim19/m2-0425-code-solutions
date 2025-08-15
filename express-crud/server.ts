@@ -9,21 +9,13 @@
 //   score: number; // A number between 0 and 100
 // };
 
-// function validateName(name: any) {
+// function validateGrade(name: any, course: any, score: any): void {
 //   if (typeof name !== 'string') {
 //     throw new ClientError(400, `Invalid name: ${name}`);
 //   }
-//   return true;
-// }
-
-// function validateCourse(course: any) {
 //   if (typeof course !== 'string') {
 //     throw new ClientError(400, `Invalid course: ${course}`);
 //   }
-//   return true;
-// }
-
-// function validateScore(score: any) {
 //   if (!Number.isInteger(+score) || score < 0 || score > 100) {
 //     if (score < 0) {
 //       throw new ClientError(
@@ -42,7 +34,6 @@
 //       );
 //     }
 //   }
-//   return true;
 // }
 
 // const db = new pg.Pool({
@@ -79,6 +70,27 @@
 //     const grade = result.rows[0];
 //     if (!grade) throw new ClientError(404, `Grade ID ${gradeId} not found`);
 //     res.json(grade);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
+// app.post('/api/grades', async (req, res, next) => {
+//   try {
+//     const { name, course, score } = req.body;
+//     console.log('req.body', req.body);
+//     if (!name || !course || !score) {
+//       throw new ClientError(400, `name, course, and score are required`);
+//     }
+//     const sql = `
+//       insert into "grades" ("name", "course", "score")
+//       values ($1, $2, $3)
+//       returning *;
+//     `;
+//     const params = [name, course, score];
+//     const result = await db.query(sql, params);
+//     const grade = result.rows[0];
+//     res.status(201).json(grade);
 //   } catch (err) {
 //     next(err);
 //   }
