@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 // Endpoint for testing
-app.get('/api/actors/', async (req, res, next) => {
+app.get('/api/actors/:actorId', async (req, res, next) => {
   try {
     const { actorId } = req.params;
     if (!Number.isInteger(+actorId)) {
