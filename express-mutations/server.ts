@@ -34,7 +34,7 @@ app.get('/api/actors/:actorId', async (req, res, next) => {
   }
 });
 
-// POST create a new actor
+// Create - POST
 app.post('/api/actors', async (req, res, next) => {
   try {
     const { firstName, lastName } = req.body;
@@ -53,6 +53,36 @@ app.post('/api/actors', async (req, res, next) => {
     const actor = result.rows[0];
 
     res.status(201).json(actor);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Update - PUT
+app.put('/api/actors/:actorId', async (req, res, next) => {
+  try {
+    const { actorId } = req.params;
+    if (!Number.isInteger(+actorId)) {
+      throw new ClientError(400, `Non-integer actorId: ${actorId}`);
+    }
+    const { firstName, lastName } = req.body;
+    if (!firstName) {
+      throw new ClientError(400, 'Please provide firstName');
+    } else if (!lastName) {
+      throw new ClientError(400, 'Please provide lastName');
+    }
+    const sql = `
+      update "actors"
+      set "firstName" = $1,
+          "lastName" = $2
+      where "actorId" = $3
+      returning *;
+    `;
+    const params = [firstName, lastName, actorId];
+    const result = await db.query(sql, params);
+    const actor = result.rows[0];
+    if (!actor) throw new ClientError(404, `actor ${actorId} not found`);
+    res.status(200).json(actor);
   } catch (err) {
     next(err);
   }
