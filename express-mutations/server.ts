@@ -43,7 +43,6 @@ app.post('/api/actors', async (req, res, next) => {
     } else if (!lastName) {
       throw new ClientError(400, 'Please provide lastName');
     }
-
     const sql = `
       insert into "actors" ("firstName", "lastName")
       values ($1, $2)
