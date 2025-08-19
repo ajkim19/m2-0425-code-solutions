@@ -24,12 +24,12 @@ export function Users() {
     async function fetchUsers() {
       const url = 'https://jsonplaceholder.typicode.com/users';
       try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
+        const res = await fetch(url);
+        if (!res.ok) {
+          throw new Error(`res status: ${res.status}`);
         }
 
-        const data = (await response.json()) as User[];
+        const data = (await res.json()) as User[];
         setUsers(data);
       } catch (err) {
         setError(err);
