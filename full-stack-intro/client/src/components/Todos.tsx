@@ -21,7 +21,7 @@ export function Todos() {
   /* Implement useEffect to fetch all todos. Hints are at the bottom of the file. */
   useEffect(() => {
     async function fetchTodos() {
-      const url = 'https://jsonplaceholder.typicode.com/users';
+      const url = '/api/todos';
       try {
         const res = await fetch(url);
         if (!res.ok) {
@@ -36,7 +36,6 @@ export function Todos() {
         setIsLoading(false);
       }
     }
-
     fetchTodos();
   }, []);
 
