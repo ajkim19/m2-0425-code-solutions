@@ -19,7 +19,26 @@ export function Todos() {
   const [error, setError] = useState<unknown>();
 
   /* Implement useEffect to fetch all todos. Hints are at the bottom of the file. */
-  useEffect(() => {}, []);
+  useEffect(() => {
+    async function fetchTodos() {
+      const url = 'https://jsonplaceholder.typicode.com/users';
+      try {
+        const res = await fetch(url);
+        if (!res.ok) {
+          throw new Error(`res status: ${res.status}`);
+        }
+
+        const data = (await res.json()) as Todo[];
+        setTodos(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchTodos();
+  }, []);
 
   /* Implement addTodo to add a new todo. Hints are at the bottom of the file. */
   async function addTodo(newTodo: UnsavedTodo) {}
