@@ -49,7 +49,7 @@ export function Todos() {
       });
       if (!res.ok) throw new Error(`res status: ${res.status}`);
       const addedTodo = (await res.json()) as Todo;
-      setTodos((prevTodo) => [...prevTodo, addedTodo]);
+      setTodos((newTodoArray) => [...newTodoArray, addedTodo]);
     } catch (err) {
       setError(err);
     }
