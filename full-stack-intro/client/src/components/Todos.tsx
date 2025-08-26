@@ -56,7 +56,25 @@ export function Todos() {
   }
 
   /* Implement toggleCompleted to toggle the completed state of a todo. Hints are at the bottom of the file. */
-  async function toggleCompleted(todo: Todo) {}
+  async function toggleCompleted(todo: Todo) {
+    try {
+      const updatedTodo = { ...todo, isCompleted: !todo.isCompleted };
+      const res = await fetch(`/api/todos/${todo.todoId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedTodo),
+      });
+      if (!res.ok) throw new Error(`res status: ${res.status}`);
+      const todoCopy = (await res.json()) as Todo;
+      setTodos((prev) =>
+        prev.map((todoItem) =>
+          todoItem.todoId === todoCopy.todoId ? todoCopy : todoItem
+        )
+      );
+    } catch (err) {
+      setError(err);
+    }
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
